@@ -1,0 +1,24 @@
+form {
+  padding: 1rem;
+  label {
+    padding-bottom: .3rem;
+    display: block;
+  }
+  input {
+    width: 30vw;
+    font-size: 1rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+    margin-bottom: 1rem;
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    width: 30vw;
+    min-height: 5rem;
+    outline: none;
+    border: 1px $grey-l-3 solid;
+    font-size: 1rem;
+  }
+}

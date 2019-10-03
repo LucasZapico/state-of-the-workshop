@@ -1,0 +1,13 @@
+button {
+  outline: none;
+  border: none;
+  min-width: 5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  background-color: $colorc;
+  color: $light;
+  font-size: 1rem;
+  &:focus,&:active, &:hover {
+    background-color: darken($colorc, 5%);
+  }
+}

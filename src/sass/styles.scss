@@ -1,0 +1,59 @@
+@import "color.scss";
+@import "typography.scss";
+@import "utilities.scss";
+@import "type-color.scss";
+@import "nav.scss";
+@import "footer.scss";
+@import "form.scss";
+@import "buttons.scss";
+
+html {
+    min-height: 100%;
+}
+
+body {
+  margin: 0px;
+  font-family: sans-serif;
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    color: $colorc;
+  }
+  ul {
+    list-style: none;
+  }
+}
+
+
+  main.items {
+    display: flex;
+    // flex-direction: column;
+    .sidenav {
+       flex-basis: 20vw;
+        padding: 1rem;
+        li {
+          paddingt-top: .5padding;
+        }
+    }
+    .items-container {
+      padding: 1rem;
+      .item {
+        padding: 1rem;
+        box-shadow: 5px 5px 5px  #3333;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+ 
+
+@media screan and (min-width: 900px){
+  main {
+    display: flex;
+    flex-direction: row;
+    .sidenav {
+     
+     
+    }
+  }
+}
