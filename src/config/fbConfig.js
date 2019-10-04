@@ -14,7 +14,12 @@ var firebaseConfig = {
   measurementId: 'G-BTNWML99QW'
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.firestore();
+try {
+  firebase.initializeApp(firebaseConfig);
+  firebase.firestore();
+  console.log('firebase up and running');
+} catch (err) {
+  console.log('error initializing firebase', err);
+}
 
 export default firebase;

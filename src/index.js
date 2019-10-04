@@ -1,27 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
 import './sass/styles.scss';
-import App from './App';
-import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
+import { createFirestoreInstance, getFirestore } from 'redux-firestore';
+import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
+import { fbConfig } from './config/fbConfig';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './store/reducers/rootReducer';
 import thunk from 'redux-thunk';
-import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import fbConfig from './config/fbConfig';
 
 const store = createStore(
   rootReducer,
-  compose(
-    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    reduxFirestore(fbConfig),
-    reactReduxFirebase(fbConfig)
-  )
+  applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore }))
 );
+
+const rrfProps = {
+  firebase: fbConfig,
+  config: fbConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance: createFirestoreInstance
+};
+
+const Test = () => {
+  return <div> Fucking Works</div>;
+};
+
 const rootElement = document.getElementById('root');
+
+console.log(store);
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <Test />
+    </ReactReduxFirebaseProvider>
   </Provider>,
   rootElement
 );

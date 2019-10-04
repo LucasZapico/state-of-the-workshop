@@ -1,7 +1,7 @@
 export const addItem = item => {
   console.log('AddItem ran');
 
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
+  return (dispatch, getState, { getFirestore }) => {
     console.log('From Action', item);
     // call db
     const firestore = getFirestore();
