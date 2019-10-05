@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
+import { firestoreConnect, isLoaded,  isEmpty } from 'react-redux-firebase';
 import { compose } from 'redux';
 
 const siteItems = props => {
   const { items } = props;
-
+  if (!isLoaded(items)) {
+    return <div>Loading..</div>
+  }
+  if (isEmpty(items)){
+    return <div>Items is empty</div>
+  }
   return items.map(item => {
     return (
       <div key={item.id} className="item">
@@ -26,13 +31,16 @@ const siteItems = props => {
   });
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.id;
-  const projects = state.firestore.data.items;
-  return {};
-};
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([{ collection: 'items' }])
-)(siteItems);
+export default siteItems;
+
+// const mapStateToProps = (state, ownProps) => {
+//   // const id = ownProps.match.params.id;
+//   const items = state.firestore.data.items;
+//   return {};
+// };
+
+// export default compose(
+//   connect(mapStateToProps),
+//   firestoreConnect([{ collection: 'items' }])
+// )(siteItems);

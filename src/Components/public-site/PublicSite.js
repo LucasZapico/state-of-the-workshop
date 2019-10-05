@@ -2,22 +2,28 @@ import React, { Component } from 'react';
 import SiteItems from './SiteItems';
 import SideNav from './SideNav';
 import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
+import { firestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase';
 import { compose } from 'redux';
 
 class PublicSite extends Component {
   render() {
     console.log('props', this.props);
     const { items } = this.props;
+    if (!isLoaded(items)) {
+      return <div>Loading..</div>
+    }
+    if (isEmpty(items)){
+      return <div>Items is empty</div>
+    }
     return (
       <main className="items">
         <div className="sidenav">
           <SideNav items={items} />
         </div>
         <div className="items-container">
-          <SiteItems items={items} />
+         <SiteItems items={items}/>
         </div>
-      </main>
+      </main> 
     );
   }
 }

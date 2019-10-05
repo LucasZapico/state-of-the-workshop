@@ -1,21 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const SideNav = props => {
   const { items } = props;
+  console.log("SideNav")
   console.log(items);
+  
   return (
-    items &&
-    items.map((item, i) => {
+    items && items.map(item => {
       return (
-        <linK to={'/item/' + item.id}>
-          <div key={i} className="sideNav-item">
-            {item}
-          </div>
-        </linK>
-      );
+        <Link to="/">
+      <div key={item.id}>{item.title}</div>
+      </Link>)
     })
-  );
-};
+ );
+}
 
 export default SideNav;

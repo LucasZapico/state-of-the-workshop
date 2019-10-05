@@ -11,8 +11,11 @@ import rootReducer from './store/reducers/rootReducer';
 import thunk from 'redux-thunk';
 import App from './App';
 
+const initialState = {}
+
 const store = createStore(
   rootReducer,
+  initialState,
   applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore }))
 );
 
@@ -32,7 +35,7 @@ const rootElement = document.getElementById('root');
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <Test />
+      <App />
     </ReactReduxFirebaseProvider>
   </Provider>,
   rootElement

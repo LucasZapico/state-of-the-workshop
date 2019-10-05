@@ -26,12 +26,12 @@ try {
     .collection('items')
     .get()
     .then(querySnapshot => {
-      querySnapshot.forEach(doc => {
-        console.log('doc'`${doc.title}`);
-      });
+      querySnapshot.forEach(docs => {
+          
+      })
+      
     });
 } catch (err) {
   console.log('error initializing firebase', err);
 }
-
 export default firebase;
