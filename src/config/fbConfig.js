@@ -17,7 +17,19 @@ var firebaseConfig = {
 try {
   firebase.initializeApp(firebaseConfig);
   firebase.firestore();
+
   console.log('firebase up and running');
+  const db = firebase.firestore();
+  console.log(db.collection('items').get());
+  firebase
+    .firestore()
+    .collection('items')
+    .get()
+    .then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        console.log('doc'`${doc.title}`);
+      });
+    });
 } catch (err) {
   console.log('error initializing firebase', err);
 }

@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 const siteItems = props => {
   const { items } = props;
@@ -23,4 +26,13 @@ const siteItems = props => {
   });
 };
 
-export default siteItems;
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.id;
+  const projects = state.firestore.data.items;
+  return {};
+};
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([{ collection: 'items' }])
+)(siteItems);

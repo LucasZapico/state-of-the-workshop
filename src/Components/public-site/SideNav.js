@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const SideNav = props => {
   const { items } = props;
   console.log(items);
-  const unique = [...new Set(items.map(item => item.parent))];
-  console.log(unique);
   return (
-    unique &&
-    unique.map((item, i) => {
+    items &&
+    items.map((item, i) => {
       return (
-        <div key={i} className="sideNav-item">
-          {item}
-        </div>
+        <linK to={'/item/' + item.id}>
+          <div key={i} className="sideNav-item">
+            {item}
+          </div>
+        </linK>
       );
     })
   );

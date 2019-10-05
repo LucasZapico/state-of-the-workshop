@@ -7,9 +7,8 @@ import { compose } from 'redux';
 
 class PublicSite extends Component {
   render() {
-    console.log(this.props);
+    console.log('props', this.props);
     const { items } = this.props;
-    console.log(items);
     return (
       <main className="items">
         <div className="sidenav">
@@ -24,9 +23,9 @@ class PublicSite extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+  console.log('firestore', state.firestore);
   return {
-    items: state.items.items
+    items: state.firestore.ordered.items
   };
 };
 
