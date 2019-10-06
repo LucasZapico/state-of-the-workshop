@@ -6,6 +6,7 @@ import SignIn from './Components/auth/Signin.js';
 import AddItem from './Components/items/AddItem.js';
 import Footer from './Components/layout/Footer.js';
 import About from './Components/pages/About.js';
+import ItemDetails from './Components/public-site/ItemDetails.js';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/additem" component={AddItem} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/item/:id" component={ItemDetails}/>
           </Switch>
           <Footer />
         </div>
