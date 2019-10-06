@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SiteItems from './SiteItems';
+import SiteItems from './SiteItemsList';
 import SideNav from './SideNav';
 import { connect } from 'react-redux';
 import { firestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase';
