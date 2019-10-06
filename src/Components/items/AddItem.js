@@ -7,6 +7,8 @@ class AddItem extends Component {
     title: '',
     description: '',
     parent: '',
+    inWorkflowSince: '',
+    inCurrentWorkflow: true, 
     link: '',
     tags: []
   };
@@ -50,6 +52,17 @@ class AddItem extends Component {
               type="parent"
               id="parent"
               onChange={this.handleChange}
+            /></div>
+              <div className="input-field">
+              
+            <label htmlFor="parent">Currently In Workflow</label>
+            <input
+              placeholder="in current workflow"
+              type="radio"
+              id="inCurrentWorkflow"
+              value="true"
+              onChange={this.handleChange}
+              checked
             />
           </div>
           <div className="input-field">

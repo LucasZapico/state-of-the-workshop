@@ -5,6 +5,7 @@ export const addItem = item => {
     console.log('From Action', item);
     // call db
     const firestore = getFirestore();
+    console.log(firestore)
     firestore
       .collection('items')
       .add({

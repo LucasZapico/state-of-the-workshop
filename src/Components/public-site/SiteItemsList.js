@@ -15,7 +15,7 @@ const siteItems = props => {
   }
   return items.map(item => {
     return (
-      <Link to={'/item/'+item.id}>
+      <Link key={item.id} to={'/item/'+item.id}>
       <ItemCard item={item} key={item.id}/>
       </Link>
     );
